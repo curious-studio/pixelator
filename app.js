@@ -851,26 +851,13 @@ if (pack === "hatch") {
 }
 
 function getPaintForCell(cell) {
-  const colorAmount = state.colorStrength / 100;
-  let base = [255, 255, 255];
-  let ink = [0, 0, 0];
-  let opacity = 0.86;
-
-  if (state.mode === "color" || state.mode === "pixelate") {
-    base = mixColor([252, 253, 252], cell.color, colorAmount);
-    ink = mixColor([35, 35, 35], [0, 0, 0], 0.72);
-    opacity = 0.78;
-  }
-
-  if (state.mode === "duo") {
-    const paper = hexToRgb(state.duoPaper);
-    const inkColor = hexToRgb(state.duoInk);
-    base = paper;
-    ink = inkColor;
-    opacity = 0.9;
-  }
-
-  return { base, ink, opacity };
+  const luminance = (0.2126 * cell.color[0] + 0.7152 * cell.color[1] + 0.0722 * cell.color[2]) / 255;
+  const grey = Math.round(luminance * 255);
+  return {
+    base: [grey, grey, grey],
+    ink: [0, 0, 0],
+    opacity: 0.86
+  };
 }
 
 function createTintedTile(tone, width, height) {
