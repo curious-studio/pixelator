@@ -1097,12 +1097,15 @@ button {
     width: auto;
     padding: 0 14px 0 10px;
     gap: 6px;
+    display: flex;
+    align-items: center;
   }
 
   #downloadPngButton .icon-button-label {
     display: inline;
     font-size: var(--text-base);
     font-weight: 760;
+    white-space: nowrap;
   }
 }
 
