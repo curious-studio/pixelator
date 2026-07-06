@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pixelator</title>
+    <meta property="og:title" content="Pixelator" />
+    <meta property="og:description" content="A browser-based tool for creating pixelated image studies." />
+    <meta property="og:image" content="https://curious-studio.github.io/mosaic/mosaic-screenshot.png" />
+    <meta property="og:url" content="https://curious-studio.github.io/mosaic/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pixelator" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div>
+            <h1>Pixelator</h1>
+          </div>
+        </div>
+
+        <div class="toolbar" aria-label="Primary actions">
+          <button class="icon-button" id="uploadButton" type="button" data-tooltip="Upload source image" aria-label="Upload source image">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 5v14"></path>
+              <path d="M5 12h14"></path>
+            </svg>
+          </button>
+          <button class="icon-button" id="downloadPngButton" type="button" data-tooltip="Download PNG" aria-label="Download PNG">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3v12"></path>
+              <path d="m7 10 5 5 5-5"></path>
+              <path d="M5 21h14"></path>
+            </svg>
+          </button>
+          <button class="icon-button" id="resetButton" type="button" data-tooltip="Reset controls" aria-label="Reset controls">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+              <path d="M3 4v6h6"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="side-panel controls-panel" aria-label="Pixelator controls">
+          <section class="panel-section source-section">
+            <div class="section-heading">
+              <h2>Source Image</h2>
+              <span id="fileMeta" hidden></span>
+            </div>
+            <label class="drop-zone" id="dropZone">
+              <input id="imageInput" type="file" accept="image/*" />
+              <div class="thumbnail-upload-surface source-preview-surface">
+                <canvas id="sourcePreview" width="360" height="230" aria-label="Source preview"></canvas>
+                <span class="thumbnail-upload-overlay" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 16V4"></path>
+                    <path d="m7 9 5-5 5 5"></path>
+                    <path d="M5 20h14"></path>
+                  </svg>
+                </span>
+              </div>
+              <span>Upload source image</span>
+            </label>
+          </section>
+
+          <section class="panel-section panel--adjustments">
+            <details open>
+              <summary>
+                <div class="section-heading">
+                  <h2>Adjustments</h2>
+                </div>
+              </summary>
+              <div class="collapse-body">
+                <label class="range-field" for="contrast">
+                  <span>Contrast</span>
+                  <output id="contrastValue">1.10</output>
+                  <input id="contrast" type="range" min="0.5" max="1.8" value="1.1" step="0.05" />
+                </label>
+
+                <label class="range-field" for="brightness">
+                  <span>Brightness</span>
+                  <output id="brightnessValue">0.00</output>
+                  <input id="brightness" type="range" min="-0.3" max="0.3" value="0" step="0.02" />
+                </label>
+              </div>
+            </details>
+          </section>
+
+        </aside>
+
+        <section class="stage" aria-label="Pixelator preview">
+          <div class="canvas-frame">
+            <canvas id="outputCanvas" aria-label="Rendered mosaic"></canvas>
+            <div class="empty-state" id="emptyState">Preparing canvas</div>
+            <p id="statusText">Loading gradient-400x400.jpg</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="page-footer">
+      <div class="footer-inner">
+        <div class="footer-col">
+          <span class="footer-label">About this tool</span>
+        </div>
+        <div class="footer-col">
+          <p>I created this tool as part of a curriculum on the Elements and Principles of Design. It is intended to help design students explore the Elements of Line, Texture, and Value, as well as the Principles of Contrast, Pattern (Repetition / Rhythm), and Scale / Proportion.</p>
+        </div>
+        <div class="footer-col">
+          <p>This tool creates mosaics in the <a href="https://en.wikipedia.org/wiki/Opus_regulatum"><em>opus regulatum</em></a> style, in which tiles or <em>tessarae</em> are placed according to a regular grid. <a href="https://www.instagram.com/paperbackdesign/">Example pieces created with this tool can be found here.</a> Tag or message me if you find this tool useful—I'd love to see what you make with it!</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
