@@ -84,7 +84,7 @@ const GLYPH_SPACE_DISPLAY = "␣";
 const defaults = {
   cellSize: 50,
   maxOutput: 1000,
-  contrast: 1.1,
+  contrast: 1.00,
   brightness: 0,
   gamma: 1,
   colorStrength: 100,
