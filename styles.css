@@ -564,6 +564,7 @@ button {
   font-size: var(--text-lg);
   font-weight: 760;
   border: 0;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 140ms ease;
 }
