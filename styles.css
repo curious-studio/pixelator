@@ -206,6 +206,10 @@ button {
   transform: none;
 }
 
+.icon-button-label {
+  display: none;
+}
+
 .icon-button svg {
   width: 20px;
   height: 20px;
@@ -1087,6 +1091,18 @@ button {
 
   #outputCanvas {
     max-height: 58vh;
+  }
+
+  #downloadPngButton {
+    width: auto;
+    padding: 0 14px 0 10px;
+    gap: 6px;
+  }
+
+  #downloadPngButton .icon-button-label {
+    display: inline;
+    font-size: var(--text-base);
+    font-weight: 760;
   }
 }
 
