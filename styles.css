@@ -507,8 +507,7 @@ button {
   gap: 10px;
 }
 
-.panel--grid summary,
-.panel--adjustments summary {
+.panel--grid summary {
   min-height: 46px;
   display: flex;
   align-items: center;
@@ -518,13 +517,11 @@ button {
   list-style: none;
 }
 
-.panel--grid summary::-webkit-details-marker,
-.panel--adjustments summary::-webkit-details-marker {
+.panel--grid summary::-webkit-details-marker {
   display: none;
 }
 
-.panel--grid summary::after,
-.panel--adjustments summary::after {
+.panel--grid summary::after {
   content: "+";
   width: 24px;
   height: 24px;
@@ -538,24 +535,39 @@ button {
 }
 
 .panel--grid[open] summary::after,
-.panel--adjustments[open] summary::after,
-.panel--grid details[open] summary::after,
-.panel--adjustments details[open] summary::after {
+.panel--grid details[open] summary::after {
   content: "-";
 }
 
-.panel--grid .collapse-body,
-.panel--adjustments .collapse-body {
+.panel--grid .collapse-body {
   padding-top: 0;
 }
 
 .panel--grid[open] .collapse-body,
-.panel--adjustments[open] .collapse-body,
-.panel--grid details[open] .collapse-body,
-.panel--adjustments details[open] .collapse-body {
+.panel--grid details[open] .collapse-body {
   border-top: 1px solid var(--line);
   padding-top: 14px;
   margin-top: 4px;
+}
+
+.download-button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 14px;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: #fff;
+  font-size: var(--text-lg);
+  font-weight: 760;
+  border: 0;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.download-button:hover,
+.download-button:focus-visible {
+  background: var(--accent-dark);
+  outline: 0;
 }
 
 .stat,

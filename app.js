@@ -34,6 +34,7 @@ const els = {
   imageInput: document.getElementById("imageInput"),
   uploadButton: document.getElementById("uploadButton"),
   downloadPngButton: document.getElementById("downloadPngButton"),
+  downloadButton: document.getElementById("downloadButton"),
   resetButton: document.getElementById("resetButton"),
   dropZone: document.getElementById("dropZone"),
   sourcePreview: document.getElementById("sourcePreview"),
@@ -1214,6 +1215,7 @@ function bindEvents() {
   els.uploadButton.addEventListener("click", () => els.imageInput.click());
   els.imageInput.addEventListener("change", (event) => handleFile(event.target.files[0]));
   els.downloadPngButton.addEventListener("click", exportPng);
+  els.downloadButton.addEventListener("click", exportPng);
   els.resetButton.addEventListener("click", resetControls);
   [els.contrast, els.brightness].forEach((input) => {
     input.addEventListener("input", () => {
